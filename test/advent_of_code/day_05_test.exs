@@ -3,12 +3,11 @@ defmodule AdventOfCode.Day05Test do
 
   import AdventOfCode.Day05
 
-  @tag :skip
   test "part1" do
-    input = nil
+    input = "test/support/input05.txt"
     result = part1(input)
 
-    assert result
+    assert result == 820
   end
 
   @tag :skip
@@ -16,6 +15,25 @@ defmodule AdventOfCode.Day05Test do
     input = nil
     result = part2(input)
 
-    assert result
+    assert result == 820
+  end
+
+  test "seat_id" do
+    code = "FBFBBFFRLR"
+    assert seat_id(code) == 357
+  end
+
+  test "find_seat rows" do
+    codes = ["F", "B", "F", "B", "B", "F", "F"]
+    row = {0, 127}
+    col = {0, 7}
+    assert find_seat(codes, row, col) == {44, 0}
+  end
+
+  test "find_seat cols" do
+    codes = ["R", "L", "R"]
+    row = {0, 127}
+    col = {0, 7}
+    assert find_seat(codes, row, col) == {0, 5}
   end
 end
