@@ -33,8 +33,6 @@ defmodule AdventOfCode.Day07 do
   # 1 + (1 * (3 * 1) + (4 * 1)) + 2 + (2 * ((5 *1) + (6 * 1) )
   # 1 + 1*7 + 2 + 2*11
   def count_children_of(tree, name) do
-    count = 0
-
     Enum.sum(
       for {child, size} <- tree[name].children do
         count_children_of(tree, child, size)
