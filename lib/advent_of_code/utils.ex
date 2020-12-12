@@ -14,4 +14,17 @@ defmodule AdventOfCode.Utils do
       HashList.add(hash_list, el, i)
     end)
   end
+
+  def to_matrix(stream) do
+    stream
+    |> Stream.with_index
+    |> Enum.reduce(%{}, fn {line, i}, acc ->
+      line
+      |> String.graphemes
+      |> Enum.with_index
+      |> Enum.reduce(acc, fn {el, j}, acc ->
+        Map.put(acc, {i, j}, el)
+      end)
+    end)
+  end
 end
