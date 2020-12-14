@@ -3,12 +3,11 @@ defmodule AdventOfCode.Day13Test do
 
   import AdventOfCode.Day13
 
-  @tag :skip
   test "part1" do
-    input = nil
+    input = "test/support/input13.txt"
     result = part1(input)
 
-    assert result
+    assert result == 295
   end
 
   @tag :skip
@@ -17,5 +16,12 @@ defmodule AdventOfCode.Day13Test do
     result = part2(input)
 
     assert result
+  end
+
+  test "find first departure" do
+    buses = [7,13,59,31,19] 
+    assert find_first_departure(buses, 939) == %{
+      7 => 945, 13 => 949, 59 => 944, 31 => 961, 19 => 950
+    }
   end
 end
