@@ -3,12 +3,11 @@ defmodule AdventOfCode.Day15Test do
 
   import AdventOfCode.Day15
 
-  @tag :skip
   test "part1" do
-    input = nil
+    input = "0,3,6"
     result = part1(input)
 
-    assert result
+    assert result == 436
   end
 
   @tag :skip
