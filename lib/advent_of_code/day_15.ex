@@ -9,7 +9,7 @@ defmodule AdventOfCode.Day15 do
     |> starting_run(%{}, 1)
   end
 
-  def part2(args) do
+  def part2(_args) do
   end
 
   def starting_run([head | tail], result, index) do
@@ -20,7 +20,7 @@ defmodule AdventOfCode.Day15 do
     end
   end
 
-  def run(result, last, index) when index > @stop2 do
+  def run(_result, last, index) when index > @stop2 do
     last
   end
 
