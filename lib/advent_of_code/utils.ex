@@ -27,4 +27,30 @@ defmodule AdventOfCode.Utils do
       end)
     end)
   end
+
+  def to_3Dmatrix(stream) do
+    stream
+    |> Stream.with_index
+    |> Enum.reduce(%{}, fn {line, i}, acc ->
+      line
+      |> String.graphemes
+      |> Enum.with_index
+      |> Enum.reduce(acc, fn {el, j}, acc ->
+        Map.put(acc, {i, j, 0}, el)
+      end)
+    end)
+  end
+
+  def to_4Dmatrix(stream) do
+    stream
+    |> Stream.with_index
+    |> Enum.reduce(%{}, fn {line, i}, acc ->
+      line
+      |> String.graphemes
+      |> Enum.with_index
+      |> Enum.reduce(acc, fn {el, j}, acc ->
+        Map.put(acc, {i, j, 0, 0}, el)
+      end)
+    end)
+  end
 end
