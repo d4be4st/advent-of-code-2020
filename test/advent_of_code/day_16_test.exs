@@ -10,12 +10,11 @@ defmodule AdventOfCode.Day16Test do
     assert result == 71
   end
 
-  @tag :skip
   test "part2" do
-    input = nil
+    input = {"test/support/input16_3.txt", "11,12,13", "test/support/input16_4.txt"}
     result = part2(input)
 
-    assert result
+    assert result == %{0 => ["row"], 1 => ["class"], 2 => ["seat"]}
   end
 
   test "parse fields" do
@@ -78,5 +77,12 @@ defmodule AdventOfCode.Day16Test do
     fields = %{3 => ["smth"], 47 => ["smth2"]}
 
     assert find_missing(line, fields) == [7]
+  end
+
+  test "reduce" do
+    assert reduce(
+      %{0 => ["row"], 1 => ["row", "class"], 2 => ["seat", "row", "class"]},
+      %{}
+    ) == %{0 => ["row"], 1 => ["class"], 2 => ["seat"]}
   end
 end
